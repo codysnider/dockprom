@@ -1,0 +1,1021 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 2,
+  "id": 6,
+  "iteration": 1616296851558,
+  "links": [
+    {
+      "icon": "bolt",
+      "tags": [],
+      "title": "Main Dashboard",
+      "type": "link",
+      "url": "http://10.20.86.187:3000/d/gSwjXgUMz/balances?orgId=1&refresh=5s"
+    },
+    {
+      "icon": "external link",
+      "includeVars": true,
+      "tags": [],
+      "title": "Trend",
+      "type": "link",
+      "url": "http://10.20.86.187:3000/d/1MF4LaUMk/symbol-trend?orgId=1&from=now-3h&to=now&refresh=5s"
+    }
+  ],
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 19,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:733",
+          "alias": "Enter",
+          "color": "#73BF69",
+          "fill": 0
+        },
+        {
+          "$$hashKey": "object:742",
+          "alias": "Exit",
+          "color": "#F2495C",
+          "fill": 0
+        },
+        {
+          "$$hashKey": "object:759",
+          "alias": "Close",
+          "color": "#5794F2",
+          "fill": 2
+        },
+        {
+          "$$hashKey": "object:147",
+          "alias": "Trailing Stoploss Threshold",
+          "color": "#B877D9",
+          "fill": 0
+        },
+        {
+          "$$hashKey": "object:842",
+          "alias": "Buy Rate",
+          "color": "rgb(255, 255, 255)",
+          "dashes": true,
+          "fill": 5,
+          "fillGradient": 3
+        },
+        {
+          "$$hashKey": "object:745",
+          "alias": "No Buy",
+          "color": "#FADE2A",
+          "fill": 0
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "trader_klines_close_price{job=\"binance-cody\", symbol=~\"$Symbol\"} != 0",
+          "interval": "",
+          "legendFormat": "Close",
+          "refId": "A"
+        },
+        {
+          "expr": "trader_enter_threshold{job=\"binance-cody\", symbol=~\"$Symbol\"} != 0",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Enter",
+          "refId": "B"
+        },
+        {
+          "expr": "trader_exit_threshold{job=\"binance-cody\", symbol=~\"$Symbol\"} != 0",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "Exit",
+          "refId": "C"
+        },
+        {
+          "expr": "trader_position_buy_rate{job=\"binance-cody\", symbol=~\"$Symbol\"} != 0",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Buy Rate",
+          "refId": "D"
+        },
+        {
+          "expr": "trader_trailing_stoploss_threshold{job=\"binance-cody\", symbol=~\"$Symbol\"} != 0",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Trailing Stoploss Threshold",
+          "refId": "E"
+        },
+        {
+          "expr": "trader_no_buy_threshold{job=\"binance-cody\", symbol=~\"$Symbol\"} != 0",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "No Buy",
+          "refId": "F"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Close Price",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:902",
+          "decimals": 8,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:903",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "decimals": 8,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 19,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.4.2",
+      "targets": [
+        {
+          "expr": "trader_position_buy_rate{symbol=\"$Symbol\"}",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Buy Rate",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "decimals": 2,
+          "mappings": [],
+          "max": 2,
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 0.25
+              },
+              {
+                "color": "blue",
+                "value": 1.5
+              },
+              {
+                "color": "purple",
+                "value": 2
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 19,
+        "y": 3
+      },
+      "id": 12,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.4.2",
+      "targets": [
+        {
+          "expr": "((trader_klines_close_price{symbol=\"$Symbol\"} < trader_klines_open_price{symbol=\"$Symbol\"} or trader_klines_open_price{symbol=\"$Symbol\"}) - trader_position_buy_rate{symbol=\"$Symbol\"}) / trader_position_buy_rate{symbol=\"$Symbol\"} * 100",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Profit",
+      "type": "gauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {},
+          "custom": {},
+          "thresholds": {
+            "mode": "absolute",
+            "steps": []
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 3,
+        "w": 19,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(trader_buy_signal{symbol=\"$Symbol\"}[30s])",
+          "interval": "",
+          "legendFormat": "Buy",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(trader_sell_signal{symbol=\"$Symbol\"}[30s])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Sell",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(trader_trailing_stoploss_signal{symbol=\"$Symbol\"}[30s])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Trailing Stoploss",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(trader_dca_signal{symbol=\"$Symbol\"}[30s])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "DCA",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(trader_take_profit_signal{symbol=\"$Symbol\"}[30s])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Take Profit",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Signals",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": false,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:143",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        },
+        {
+          "$$hashKey": "object:144",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "custom": {},
+          "decimals": 8,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 5,
+        "x": 19,
+        "y": 9
+      },
+      "id": 9,
+      "options": {
+        "displayMode": "basic",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {}
+      },
+      "pluginVersion": "7.4.2",
+      "targets": [
+        {
+          "expr": "trader_klines_close_price{symbol=\"$Symbol\"}",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Close",
+          "refId": "A"
+        },
+        {
+          "expr": "trader_klines_open_price{symbol=\"$Symbol\"}",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Open",
+          "refId": "B"
+        },
+        {
+          "expr": "trader_klines_high_price{symbol=\"$Symbol\"}",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "High",
+          "refId": "C"
+        },
+        {
+          "expr": "trader_klines_low_price{symbol=\"$Symbol\"}",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Low",
+          "refId": "D"
+        },
+        {
+          "expr": "trader_trailing_stoploss_threshold{symbol=\"$Symbol\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Stop loss",
+          "refId": "E"
+        }
+      ],
+      "title": "Buy Rate",
+      "type": "bargauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 3,
+        "w": 19,
+        "x": 0,
+        "y": 12
+      },
+      "hiddenSeries": false,
+      "id": 11,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(trader_buy_orders{symbol=\"$Symbol\"}[30s])",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Buy",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(trader_sell_orders{symbol=\"$Symbol\"}[30s])",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Sell",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(trader_cancel_orders{symbol=\"$Symbol\"}[30s])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Cancel",
+          "refId": "C"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Orders",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": false,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:694",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        },
+        {
+          "$$hashKey": "object:695",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 3,
+        "w": 19,
+        "x": 0,
+        "y": 15
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "trader_balance{symbol=~\"$Symbol\"} != 0",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Balance",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": false,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:253",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": false
+        },
+        {
+          "$$hashKey": "object:254",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "ETH",
+          "value": "ETH"
+        },
+        "datasource": null,
+        "definition": "label_values(trader_trendline_1, symbol)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Symbol",
+        "options": [
+          {
+            "selected": false,
+            "text": "ADA",
+            "value": "ADA"
+          },
+          {
+            "selected": false,
+            "text": "ALGO",
+            "value": "ALGO"
+          },
+          {
+            "selected": false,
+            "text": "AMB",
+            "value": "AMB"
+          },
+          {
+            "selected": false,
+            "text": "ATOM",
+            "value": "ATOM"
+          },
+          {
+            "selected": false,
+            "text": "BAT",
+            "value": "BAT"
+          },
+          {
+            "selected": false,
+            "text": "BCH",
+            "value": "BCH"
+          },
+          {
+            "selected": false,
+            "text": "BNB",
+            "value": "BNB"
+          },
+          {
+            "selected": false,
+            "text": "BQX",
+            "value": "BQX"
+          },
+          {
+            "selected": false,
+            "text": "DASH",
+            "value": "DASH"
+          },
+          {
+            "selected": false,
+            "text": "DIA",
+            "value": "DIA"
+          },
+          {
+            "selected": false,
+            "text": "DOT",
+            "value": "DOT"
+          },
+          {
+            "selected": false,
+            "text": "EGLD",
+            "value": "EGLD"
+          },
+          {
+            "selected": false,
+            "text": "ENJ",
+            "value": "ENJ"
+          },
+          {
+            "selected": false,
+            "text": "EOS",
+            "value": "EOS"
+          },
+          {
+            "selected": false,
+            "text": "ETC",
+            "value": "ETC"
+          },
+          {
+            "selected": false,
+            "text": "ETH",
+            "value": "ETH"
+          },
+          {
+            "selected": false,
+            "text": "FTM",
+            "value": "FTM"
+          },
+          {
+            "selected": false,
+            "text": "GAS",
+            "value": "GAS"
+          },
+          {
+            "selected": false,
+            "text": "KNC",
+            "value": "KNC"
+          },
+          {
+            "selected": false,
+            "text": "LINK",
+            "value": "LINK"
+          },
+          {
+            "selected": false,
+            "text": "LRC",
+            "value": "LRC"
+          },
+          {
+            "selected": true,
+            "text": "LTC",
+            "value": "LTC"
+          },
+          {
+            "selected": false,
+            "text": "MTL",
+            "value": "MTL"
+          },
+          {
+            "selected": false,
+            "text": "NEO",
+            "value": "NEO"
+          },
+          {
+            "selected": false,
+            "text": "NULS",
+            "value": "NULS"
+          },
+          {
+            "selected": false,
+            "text": "OMG",
+            "value": "OMG"
+          },
+          {
+            "selected": false,
+            "text": "POWR",
+            "value": "POWR"
+          },
+          {
+            "selected": false,
+            "text": "REQ",
+            "value": "REQ"
+          },
+          {
+            "selected": false,
+            "text": "SOL",
+            "value": "SOL"
+          },
+          {
+            "selected": false,
+            "text": "UNI",
+            "value": "UNI"
+          },
+          {
+            "selected": false,
+            "text": "WTC",
+            "value": "WTC"
+          },
+          {
+            "selected": false,
+            "text": "XEM",
+            "value": "XEM"
+          },
+          {
+            "selected": false,
+            "text": "XLM",
+            "value": "XLM"
+          },
+          {
+            "selected": false,
+            "text": "XRP",
+            "value": "XRP"
+          },
+          {
+            "selected": false,
+            "text": "XTZ",
+            "value": "XTZ"
+          },
+          {
+            "selected": false,
+            "text": "ZEN",
+            "value": "ZEN"
+          },
+          {
+            "selected": false,
+            "text": "ZRX",
+            "value": "ZRX"
+          }
+        ],
+        "query": {
+          "query": "label_values(trader_trendline_1, symbol)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Position",
+  "uid": "ViqbgiUMk",
+  "version": 61
+}

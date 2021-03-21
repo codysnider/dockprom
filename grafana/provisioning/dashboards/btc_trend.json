@@ -1,0 +1,808 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 1,
+  "id": 11,
+  "iteration": 1616296773947,
+  "links": [
+    {
+      "icon": "external link",
+      "tags": [],
+      "title": "Main",
+      "type": "link",
+      "url": "http://10.20.86.187:3000/d/gSwjXgUMz/balances?orgId=1&refresh=5s"
+    }
+  ],
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "trader_btc_balance > 0.015 != 0",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "BTC Balance",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:213",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:214",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {},
+          "custom": {},
+          "thresholds": {
+            "mode": "absolute",
+            "steps": []
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "trader_btc_change < 500 > -500",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "Change",
+          "refId": "A"
+        },
+        {
+          "expr": "avg_over_time(trader_btc_change[5m]) < 500 > -500",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Average (grafana)",
+          "refId": "B"
+        },
+        {
+          "expr": "trader_btc_change_avg < 500 > -500",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "Average (system)",
+          "refId": "C"
+        },
+        {
+          "expr": "avg_over_time(trader_btc_change[1m]) < 500 > -500",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Average (grafana)",
+          "refId": "D"
+        }
+      ],
+      "thresholds": [
+        {
+          "$$hashKey": "object:810",
+          "colorMode": "critical",
+          "fill": true,
+          "line": true,
+          "op": "gt",
+          "value": 10,
+          "yaxis": "left"
+        },
+        {
+          "$$hashKey": "object:104",
+          "colorMode": "ok",
+          "fill": false,
+          "line": true,
+          "op": "lt",
+          "value": 3,
+          "yaxis": "left"
+        },
+        {
+          "$$hashKey": "object:55",
+          "colorMode": "custom",
+          "fill": false,
+          "fillColor": "rgba(51, 162, 229, 0.2)",
+          "line": true,
+          "lineColor": "rgba(31, 96, 196, 0.6)",
+          "op": "gt",
+          "value": 0,
+          "yaxis": "left"
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "BTC Change",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:94",
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:95",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "trader_klines_close_price{job=\"binance-cody\", symbol=~\"$Symbol\"} != 0",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Symbol Close",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "trader_btc_rate != 0",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "BTC/USD Value",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:154",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:155",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 6,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(trader_rally_parties[15s])",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Rally Parties",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "ZRX",
+          "value": "ZRX"
+        },
+        "datasource": null,
+        "definition": "label_values(trader_trendline_1, symbol)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Symbol",
+        "options": [
+          {
+            "selected": false,
+            "text": "ADA",
+            "value": "ADA"
+          },
+          {
+            "selected": false,
+            "text": "ALGO",
+            "value": "ALGO"
+          },
+          {
+            "selected": false,
+            "text": "AMB",
+            "value": "AMB"
+          },
+          {
+            "selected": true,
+            "text": "ATOM",
+            "value": "ATOM"
+          },
+          {
+            "selected": false,
+            "text": "BAT",
+            "value": "BAT"
+          },
+          {
+            "selected": false,
+            "text": "BCH",
+            "value": "BCH"
+          },
+          {
+            "selected": false,
+            "text": "BNB",
+            "value": "BNB"
+          },
+          {
+            "selected": false,
+            "text": "BQX",
+            "value": "BQX"
+          },
+          {
+            "selected": false,
+            "text": "DASH",
+            "value": "DASH"
+          },
+          {
+            "selected": false,
+            "text": "DIA",
+            "value": "DIA"
+          },
+          {
+            "selected": false,
+            "text": "DOT",
+            "value": "DOT"
+          },
+          {
+            "selected": false,
+            "text": "EGLD",
+            "value": "EGLD"
+          },
+          {
+            "selected": false,
+            "text": "ENJ",
+            "value": "ENJ"
+          },
+          {
+            "selected": false,
+            "text": "EOS",
+            "value": "EOS"
+          },
+          {
+            "selected": false,
+            "text": "ETC",
+            "value": "ETC"
+          },
+          {
+            "selected": false,
+            "text": "ETH",
+            "value": "ETH"
+          },
+          {
+            "selected": false,
+            "text": "FTM",
+            "value": "FTM"
+          },
+          {
+            "selected": false,
+            "text": "GAS",
+            "value": "GAS"
+          },
+          {
+            "selected": false,
+            "text": "KNC",
+            "value": "KNC"
+          },
+          {
+            "selected": false,
+            "text": "LINK",
+            "value": "LINK"
+          },
+          {
+            "selected": false,
+            "text": "LRC",
+            "value": "LRC"
+          },
+          {
+            "selected": false,
+            "text": "LTC",
+            "value": "LTC"
+          },
+          {
+            "selected": false,
+            "text": "MTL",
+            "value": "MTL"
+          },
+          {
+            "selected": false,
+            "text": "NEO",
+            "value": "NEO"
+          },
+          {
+            "selected": false,
+            "text": "NULS",
+            "value": "NULS"
+          },
+          {
+            "selected": false,
+            "text": "OMG",
+            "value": "OMG"
+          },
+          {
+            "selected": false,
+            "text": "POWR",
+            "value": "POWR"
+          },
+          {
+            "selected": false,
+            "text": "REQ",
+            "value": "REQ"
+          },
+          {
+            "selected": false,
+            "text": "SOL",
+            "value": "SOL"
+          },
+          {
+            "selected": false,
+            "text": "UNI",
+            "value": "UNI"
+          },
+          {
+            "selected": false,
+            "text": "WTC",
+            "value": "WTC"
+          },
+          {
+            "selected": false,
+            "text": "XEM",
+            "value": "XEM"
+          },
+          {
+            "selected": false,
+            "text": "XLM",
+            "value": "XLM"
+          },
+          {
+            "selected": false,
+            "text": "XRP",
+            "value": "XRP"
+          },
+          {
+            "selected": false,
+            "text": "XTZ",
+            "value": "XTZ"
+          },
+          {
+            "selected": false,
+            "text": "ZEN",
+            "value": "ZEN"
+          },
+          {
+            "selected": false,
+            "text": "ZRX",
+            "value": "ZRX"
+          }
+        ],
+        "query": {
+          "query": "label_values(trader_trendline_1, symbol)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "BTC Rate <-> Balance",
+  "uid": "RwBi67wMk",
+  "version": 25
+}

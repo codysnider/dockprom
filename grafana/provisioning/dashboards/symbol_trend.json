@@ -1,0 +1,359 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 1,
+  "id": 9,
+  "iteration": 1616296918700,
+  "links": [
+    {
+      "icon": "external link",
+      "includeVars": true,
+      "tags": [],
+      "title": "Position",
+      "type": "link",
+      "url": "http://10.20.86.187:3000/d/ViqbgiUMk/position?orgId=1&from=now-15m&to=now&refresh=5s"
+    }
+  ],
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 21,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:733",
+          "alias": "Enter",
+          "color": "#73BF69",
+          "fill": 0
+        },
+        {
+          "$$hashKey": "object:742",
+          "alias": "Exit",
+          "color": "#F2495C",
+          "fill": 0
+        },
+        {
+          "$$hashKey": "object:759",
+          "alias": "Close",
+          "color": "#5794F2",
+          "fill": 2
+        },
+        {
+          "$$hashKey": "object:147",
+          "alias": "Trailing Stoploss Threshold",
+          "color": "#B877D9",
+          "fill": 0
+        },
+        {
+          "$$hashKey": "object:842",
+          "alias": "Buy Rate",
+          "color": "rgb(255, 255, 255)",
+          "dashes": true,
+          "fill": 5,
+          "fillGradient": 3
+        },
+        {
+          "$$hashKey": "object:745",
+          "alias": "No Buy",
+          "color": "#FADE2A",
+          "fill": 0
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "trader_klines_close_price{job=\"binance-cody\", symbol=~\"$Symbol\"} != 0",
+          "interval": "",
+          "legendFormat": "Close",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Close Price",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:902",
+          "decimals": 8,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:903",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 3,
+        "x": 21,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "content": "- 0 Booming\n- 1 Upward\n- 2 Neutral\n- 3 Downward\n- 4 Crashing",
+        "mode": "markdown"
+      },
+      "pluginVersion": "7.4.2",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Panel Title",
+      "type": "text"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 21,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "trader_trendline_current{symbol=\"$Symbol\"}",
+          "interval": "",
+          "legendFormat": "Current",
+          "refId": "A"
+        },
+        {
+          "expr": "trader_trendline_1{symbol=\"$Symbol\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "1 hour",
+          "refId": "B"
+        },
+        {
+          "expr": "trader_trendline_3{symbol=\"$Symbol\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "3 hour",
+          "refId": "C"
+        },
+        {
+          "expr": "trader_trendline_6{symbol=\"$Symbol\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "6 hour",
+          "refId": "D"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Trend Values",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "ADA",
+          "value": "ADA"
+        },
+        "datasource": null,
+        "definition": "label_values(trader_trendline_1, symbol)",
+        "description": "",
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Symbol",
+        "options": [],
+        "query": {
+          "query": "label_values(trader_trendline_1, symbol)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Symbol Trend",
+  "uid": "1MF4LaUMk",
+  "version": 12
+}

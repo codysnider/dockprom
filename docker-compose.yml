@@ -21,27 +21,11 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--web.console.libraries=/etc/prometheus/console_libraries'
       - '--web.console.templates=/etc/prometheus/consoles'
-      - '--storage.tsdb.retention.time=200h'
+      - '--storage.tsdb.retention.time=3d'
       - '--web.enable-lifecycle'
     restart: unless-stopped
     ports:
       - "9090:9090"
-    networks:
-      - monitor-net
-    labels:
-      org.label-schema.group: "monitoring"
-
-  alertmanager:
-    image: prom/alertmanager:v0.21.0
-    container_name: alertmanager
-    volumes:
-      - ./alertmanager:/etc/alertmanager
-    command:
-      - '--config.file=/etc/alertmanager/config.yml'
-      - '--storage.path=/alertmanager'
-    restart: unless-stopped
-    expose:
-      - 9093
     networks:
       - monitor-net
     labels:
@@ -89,6 +73,7 @@ services:
     container_name: grafana
     volumes:
       - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/config:/etc/grafana/provisioning/config
       - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
     environment:
